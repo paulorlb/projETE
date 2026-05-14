@@ -3,10 +3,11 @@ project:
   output-dir: _book
 
 book:
-  title: "ETE 2526 · Spatial Econometrics"
-  subtitle: "Laboratory Notes · MSt CDCS · 2025–26"
+  title: "ETE 2526 · Spatial Econometrics · Practice Notes "
+  subtitle: "University of Aveiro  · DCSPT · Mst CDCS"
   author:
-    name: "Paulo Ricardo"
+    name: "Paulo Ricardo Batista"
+    email: "pauloricardolb@ua.pt"
   date: last-modified
   chapters:
     - index.qmd
@@ -16,7 +17,7 @@ book:
     - part: "Topic 2 · Spatial Weights & Autocorrelation"
       chapters:
         - ete2526_topic2_lab.ipynb
-    - part: "Topics 3–4 · Spatial Econometric Models"
+    - part: "TOPIC 3 :: Explanatory Spatial Econometric Models"
       chapters:
         - ete2526_topic3_lab.ipynb
   sidebar:
