@@ -1,0 +1,57 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "ETE 2526 · Spatial Econometrics"
+  subtitle: "Laboratory Notes · MSt CDCS · 2025–26"
+  author:
+    name: "Paulo Ricardo"
+  date: last-modified
+  chapters:
+    - index.qmd
+    #- part: "Topic 1 · Geographic Data Fundamentals"
+    #  chapters:
+    #    - ete2526_topic1_lab.ipynb
+    - part: "Topic 2 · Spatial Weights & Autocorrelation"
+      chapters:
+        - ete2526_topic2_lab.ipynb
+    - part: "Topics 3–4 · Spatial Econometric Models"
+      chapters:
+        - ete2526_topic3_lab.ipynb
+  sidebar:
+    search: true
+    style: docked
+  navbar:
+    background: primary
+    search: true
+    pinned: true
+  page-footer:
+    left: "© 2026 Paulo Ricardo · MSt CDCS"
+    right: "Built with [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    toc-depth: 4
+    toc-title: "On this page"
+    number-sections: true
+    number-depth: 3
+    smooth-scroll: true
+    code-fold: true
+    code-tools: true
+    code-summary: "▶ Show code"
+    code-overflow: scroll
+    highlight-style: github
+    fig-align: center
+    include-in-header: _quarto_head.html
+    include-after-body: _quarto_body.html
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto

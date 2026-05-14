@@ -1,0 +1,38 @@
+# Preface {.unnumbered}
+
+These laboratory notes accompany **ETE 2526 – Spatial Econometrics**, a module of the Master in Cities, Data and Complex Systems (MSt CDCS), academic year 2025–26.
+
+## How to use these notes
+
+Each chapter maps to a hands-on lab session. The text is structured in three layers:
+
+1. **Narrative** — conceptual explanations and methodological context, always visible.
+2. **Outputs** — tables, maps, and statistical results produced by the code, always visible.
+3. **Code** — the Python implementation behind each output, **hidden by default**.
+
+To reveal the code behind any result, click **▶ Show code** beside it.
+To toggle all code on or off at once, use the **`</> Code`** button in the top-right toolbar.
+
+::: {.callout-tip}
+## Recommended reading flow
+Read the narrative, study the outputs, then expand the code only when you want to understand the implementation. This separation keeps the explanatory text clean while keeping the full reproducible workflow one click away.
+:::
+
+## Session overview
+
+| Session | Topic | Key methods |
+|---------|-------|-------------|
+| **Topic 1** | Geographic Data Fundamentals | Spatial data types, CRS, overlay, visualisation |
+| **Topic 2** | MAUP, Spatial Weights & Autocorrelation | Weight matrices, Moran's I, LISA, diagnostics |
+| **Topics 3–4** | Spatial Econometric Models | SLM, SEM, SDM, impacts, model selection |
+
+## Software environment
+
+All notebooks run on the `geomodelling` Python kernel. Core packages include:
+
+`geopandas` · `libpysal` · `esda` · `spreg` · `splot` · `statsmodels` · `scikit-learn` · `osmnx` · `contextily`
+
+::: {.callout-note collapse="true"}
+## Reproducibility note
+The HTML book is rendered from pre-executed notebooks — outputs are frozen and the kernel is **not** re-run during the build. To reproduce results locally, open the `.ipynb` files and run them with the `geomodelling` kernel active.
+:::

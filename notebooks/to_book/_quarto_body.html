@@ -1,0 +1,40 @@
+<!-- DataTables 2.x -->
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  function initDataTables() {
+    document.querySelectorAll("table.dataframe").forEach(function (tbl) {
+      if (tbl._dtInitialised) { return; }
+      tbl._dtInitialised = true;
+      if (!tbl.id) {
+        tbl.id = "dt_" + Math.random().toString(36).slice(2, 9);
+      }
+      new DataTable(tbl, {
+        pageLength: 10,
+        lengthMenu: [5, 10, 25, 50, 100],
+        scrollX: true,
+        layout: {
+          topStart: "search",
+          topEnd: "pageLength",
+          bottomStart: "info",
+          bottomEnd: "paging"
+        },
+        language: {
+          search: "Filter:",
+          lengthMenu: "Show _MENU_ rows",
+          info: "Showing _START_–_END_ of _TOTAL_",
+          paginate: { previous: "‹", next: "›" }
+        }
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initDataTables);
+  } else {
+    initDataTables();
+  }
+})();
+</script>

@@ -12,7 +12,7 @@ Entre outros dados, este repositório recorre aos dados produzidos no âmbito do
 
 ### Biblioteca indispensável
 * [Pysal - Python Spatial Analysis Library](https://pysal.org/)
-* BOOK:  [Geographic Data Science with Python](https://geographicdata.science/book/intro.html)
+* Suggested reference BOOK:  [Geographic Data Science with Python](https://geographicdata.science/book/intro.html)
 
 
 ## Requisitos
@@ -42,3 +42,97 @@ A pasta 'data' e o ficheiro github .env não devem ser partilhados no repositór
  Março de 2026
 
 
+# Sessions 3/4 Spatial Econometrics Notebook
+
+This repository now includes a resumed and completed Sessions 3/4 lab notebook:
+
+- `notebooks/Session_03_04_Spatial_Econometric_Models.qmd`
+- backup before Prompt 6 resume: `notebooks/Session_03_04_Spatial_Econometric_Models_before_prompt6_resume.qmd`
+- resume audit: `outputs/diagnostics/PROMPT_6_RESUME_AUDIT.md`
+
+The notebook resumes from the staged Prompt 1-5 workflow and completes Prompt 6 material: SDM/SDEM, spatial impacts, robustness matrices, final synthesis, exercises, bibliography, and packaging.
+
+## Required Files
+
+The core notebook expects these files from the project root:
+
+- `data/ETE_Lab.gpkg`
+- `AGENTS.md`
+- `NOTEBOOK_SPEC.md`
+- `knowledge/KB_SOURCE_INVENTORY.md`
+- `knowledge/KB_SESSION_03_04.md`
+- `knowledge/KB_NOTEBOOK_MARKDOWN_PLAN.md`
+
+Useful companion metadata:
+
+- `data/dbPrimeYield_AVRILH_ETE_schema.md`
+- `data/CAOP24_CONT_MUNI_metadata.md`
+- `outputs/layer_inventory/ETE_Lab_layer_inventory.md`
+- `outputs/layer_inventory/IMPLEMENTATION_PLAN.md`
+
+## Expected Project Structure
+
+```text
+projETE/
+  data/
+    ETE_Lab.gpkg
+    dbPrimeYield_AVRILH_ETE_schema.md
+    CAOP24_CONT_MUNI_metadata.md
+  knowledge/
+    KB_SOURCE_INVENTORY.md
+    KB_SESSION_03_04.md
+    KB_NOTEBOOK_MARKDOWN_PLAN.md
+  notebooks/
+    Session_03_04_Spatial_Econometric_Models.qmd
+  outputs/
+    diagnostics/
+    layer_inventory/
+```
+
+## Package Requirements
+
+Install the packages listed in `requirements.txt`. Core packages include `numpy`, `pandas`, `geopandas`, `shapely`, `matplotlib`, `libpysal`, `esda`, `statsmodels`, and `spreg`.
+
+Optional packages such as `mapclassify`, `splot`, `contextily`, and `osmnx` improve mapping or extension sections but are not required for the main Prompt 6 workflow.
+
+## How To Run The Notebook
+
+From the project root, start Jupyter or an editor with a Python kernel that has the required packages installed, then run:
+
+```text
+notebooks/Session_03_04_Spatial_Econometric_Models.qmd
+```
+
+The notebook inspects GeoPackage layers programmatically before assigning roles. It uses `data/ETE_Lab.gpkg` as the single authoritative spatial data source and uses EPSG:3763 for metric operations.
+
+## How To Render Quarto Output
+
+With Quarto installed and an appropriate Python/Jupyter kernel available:
+
+```powershell
+quarto render notebooks\Session_03_04_Spatial_Econometric_Models.qmd --to html
+```
+
+For a syntax/render dry-run without executing Python chunks:
+
+```powershell
+quarto render notebooks\Session_03_04_Spatial_Econometric_Models.qmd --to html --execute false
+```
+
+Quarto may still require a working Python/Jupyter bridge, including `jupyter` and `PyYAML`, even for no-execute rendering.
+
+## Applied Examples
+
+The notebook contains two applied tracks:
+
+- **Aveiro/Ilhavo housing-market track:** starts from cleaned listing points, diagnoses coordinate and assignment quality, aggregates to zones and parishes/freguesias, builds Queen/Rook/kNN weights, estimates OLS and spatial models, computes SAR/SDM impacts, and tests robustness across supports, W definitions, outcomes, small-N restrictions, outlier flags, and fallback-share flags.
+- **Mainland Portugal municipal track:** uses `CAOP24_CONT_MUNI` as the municipal support with housing-price targets and municipal indicators, diagnoses missingness and high-price municipalities, builds municipal weights, estimates parsimonious OLS/spatial models, computes impacts where feasible, and checks robustness across W definitions, targets, indicator families, extreme municipalities, and missingness.
+
+## Known Limitations
+
+- The data are observational asking-price listings and municipal indicators; the notebook avoids causal claims.
+- Municipal housing-price targets are sparse and target-specific.
+- Zone, parish/freguesia, and municipal results are support-dependent.
+- Spatial weights are modelling assumptions, not facts.
+- SAR and SDM coefficients are not marginal effects; the notebook computes direct, indirect, and total impacts through the spatial multiplier.
+- Session 5 topics are intentionally kept out except for short forward-looking notes.

@@ -1,0 +1,49 @@
+<!-- DataTables 2.x (no jQuery required) -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+
+<style>
+/* ── DataTables tweaks ──────────────────────────────────────────────────── */
+table.dataframe {
+  width: 100% !important;
+  font-size: 0.875em;
+}
+.dataTables_wrapper {
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+.dataTables_filter input {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 3px 8px;
+  margin-left: 6px;
+}
+.dataTables_length select {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 2px 5px;
+}
+table.dataframe thead th {
+  background: #f0f4ff;
+  white-space: nowrap;
+}
+
+/* ── Code-fold summary label ────────────────────────────────────────────── */
+.quarto-fold-btn {
+  font-size: 0.8em;
+}
+
+/* ── Outputs: give figures and tables breathing room ────────────────────── */
+.cell-output img,
+.cell-output-display img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* ── Wider content area on large screens ───────────────────────────────── */
+@media (min-width: 1400px) {
+  .quarto-container {
+    max-width: 1320px;
+  }
+}
+</style>
