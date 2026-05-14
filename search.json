@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "ETE 2526 · Spatial Econometrics · Practice Notes",
     "section": "",
-    "text": "Preface\nThese laboratory notes accompany ETE 2526 – Spatial Econometrics, a module of the Master in Cities, Data and Complex Systems (MSt CDCS), academic year 2025–26.",
+    "text": "Preface\nThese Theoretical Lab-Practical notes accompany the course of ETE :: Temporal and Spatial Econometrics – Spatial Econometrics module, a module of the Master in Data Science for Social Sciences at the Department of Social, Political and Territorial Sciences at University of Aveiro. This version: academic year 2025–26.",
     "crumbs": [
       "Preface"
     ]
@@ -24,7 +24,7 @@
     "href": "index.html#session-overview",
     "title": "ETE 2526 · Spatial Econometrics · Practice Notes",
     "section": "Session overview",
-    "text": "Session overview\n\n\n\n\n\n\n\n\nSession\nTopic\nKey methods\n\n\n\n\nTopic 1\nGeographic Data Fundamentals\nSpatial data types, CRS, overlay, visualisation\n\n\nTopic 2\nMAUP, Spatial Weights & Autocorrelation\nWeight matrices, Moran’s I, LISA, diagnostics\n\n\nTopics 3–4\nSpatial Econometric Models\nSLM, SEM, SDM, impacts, model selection",
+    "text": "Session overview\n\n\n\n\n\n\n\n\nSession\nTopic\nKey methods\n\n\n\n\n\n\n\n\n\nTopic 2\nMAUP, Spatial Weights & Autocorrelation\nWeight matrices, Moran’s I, LISA, diagnostics\n\n\nTopics 3–4\nSpatial Econometric Models\nSLM, SEM, SDM, impacts, model selection",
     "crumbs": [
       "Preface"
     ]
