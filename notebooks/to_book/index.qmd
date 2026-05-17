@@ -1,6 +1,6 @@
 # Preface {.unnumbered}
 
-These laboratory notes accompany **ETE 2526 – Spatial Econometrics**, a module of the Master in Cities, Data and Complex Systems (MSt CDCS), academic year 2025–26.
+These Theoretical Lab-Practical  notes accompany the course of **ETE :: Temporal and Spatial Econometrics – Spatial Econometrics module**, a module of the Master in Data Science for Social Sciences at the Department of Social, Political and Territorial Sciences at University of Aveiro. This version: academic year 2025–26.
 
 ## How to use these notes
 
@@ -22,7 +22,7 @@ Read the narrative, study the outputs, then expand the code only when you want t
 
 | Session | Topic | Key methods |
 |---------|-------|-------------|
-| **Topic 1** | Geographic Data Fundamentals | Spatial data types, CRS, overlay, visualisation |
+|  | |
 | **Topic 2** | MAUP, Spatial Weights & Autocorrelation | Weight matrices, Moran's I, LISA, diagnostics |
 | **Topics 3–4** | Spatial Econometric Models | SLM, SEM, SDM, impacts, model selection |
 
