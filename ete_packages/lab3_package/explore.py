@@ -63,8 +63,17 @@ def plot_point_map(gdf, column: str, title: str, sample_size: int = 2000, cmap: 
     plt.show()
 
 
-def plot_lisa_map(gdf, lisa_df, title: str) -> None:
-    """Draw a LISA cluster map from a compute_lisa() result joined on gdf.index."""
+def plot_lisa_map(gdf, lisa_df, title: str, legend_outside: bool = False) -> None:
+    """Draw a LISA cluster map from a compute_lisa() result joined on gdf.index.
+
+    Parameters
+    ----------
+    legend_outside : bool
+        When True the legend is placed to the right of the axes so it does not
+        overlap the map (useful for tall/narrow geographies such as mainland
+        Portugal).  When False (default) the legend is placed inside the axes
+        at the lower-right corner.
+    """
     _, _, _, plt = import_analysis_stack()
     from matplotlib.patches import Patch
 
@@ -88,8 +97,18 @@ def plot_lisa_map(gdf, lisa_df, title: str) -> None:
         for k, lbl in _LISA_LEGEND
         if k in present
     ]
-    ax.legend(handles=handles, loc="lower right", fontsize=9, framealpha=0.9)
-    plt.tight_layout()
+    if legend_outside:
+        ax.legend(
+            handles=handles,
+            loc="center left",
+            bbox_to_anchor=(1.02, 0.5),
+            fontsize=9,
+            framealpha=0.9,
+        )
+        plt.tight_layout(rect=[0, 0, 0.82, 1])
+    else:
+        ax.legend(handles=handles, loc="lower right", fontsize=9, framealpha=0.9)
+        plt.tight_layout()
     plt.show()
 
 
