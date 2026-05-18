@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; MAUP, Spatial Weights, Spatial Autocorrelation, and Spatial Econometric Diagnostics with Aveiro-Ilhavo Housing Listings – ETE 2526 · Spatial Econometrics · Practice Notes </title>
+<title>1&nbsp; Introductiob: key concepts – ETE 2526 · Spatial Econometrics · Practice Notes </title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -68,19 +71,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-969ddfa49e00a70eb3423444dbc81f6c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-40b2a005efe6e6fd6ef73134d5c3deda.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-19057f62685b7ef0603dd7b7c3ade36f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-40b2a005efe6e6fd6ef73134d5c3deda.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8507a392de8405235b10bf7446af15fd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1e546c217b6b96082c2f9e289b09e6f6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8507a392de8405235b10bf7446af15fd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,103 +112,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <!-- DataTables 2.x (no jQuery required) -->
-
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
 
-
-
 <style>
-
 /* ── DataTables tweaks ──────────────────────────────────────────────────── */
-
 table.dataframe {
-
   width: 100% !important;
-
   font-size: 0.875em;
-
 }
-
 .dataTables_wrapper {
-
   margin: 1rem 0;
-
   overflow-x: auto;
-
 }
-
 .dataTables_filter input {
-
   border-radius: 4px;
-
   border: 1px solid #ccc;
-
   padding: 3px 8px;
-
   margin-left: 6px;
-
 }
-
 .dataTables_length select {
-
   border-radius: 4px;
-
   border: 1px solid #ccc;
-
   padding: 2px 5px;
-
 }
-
 table.dataframe thead th {
-
   background: #f0f4ff;
-
   white-space: nowrap;
-
 }
-
-
 
 /* ── Code-fold summary label ────────────────────────────────────────────── */
-
 .quarto-fold-btn {
-
   font-size: 0.8em;
-
 }
-
-
 
 /* ── Outputs: give figures and tables breathing room ────────────────────── */
-
 .cell-output img,
-
 .cell-output-display img {
-
   max-width: 100%;
-
   height: auto;
-
   border-radius: 4px;
-
 }
-
-
 
 /* ── Wider content area on large screens ───────────────────────────────── */
-
 @media (min-width: 1400px) {
-
   .quarto-container {
-
     max-width: 1320px;
-
   }
-
 }
-
 </style>
-
 <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -383,8 +336,6 @@ table.dataframe thead th {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">ETE 2526 · Spatial Econometrics · Practice Notes</span>
     </a>
@@ -400,7 +351,7 @@ table.dataframe thead th {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ete2526_topic2_lab.html">Topic 2 · Spatial Weights &amp; Autocorrelation</a></li><li class="breadcrumb-item"><a href="./ete2526_topic2_lab.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MAUP, Spatial Weights, Spatial Autocorrelation, and Spatial Econometric Diagnostics with Aveiro-Ilhavo Housing Listings</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ete2526_topic2_lab.html">Topic 2 · Spatial Weights &amp; Autocorrelation</a></li><li class="breadcrumb-item"><a href="./ete2526_topic2_lab.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introductiob: key concepts</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -413,10 +364,6 @@ table.dataframe thead th {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -442,7 +389,7 @@ table.dataframe thead th {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ete2526_topic2_lab.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MAUP, Spatial Weights, Spatial Autocorrelation, and Spatial Econometric Diagnostics with Aveiro-Ilhavo Housing Listings</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introductiob: key concepts</span></span></a>
   </div>
 </li>
       </ul>
@@ -459,7 +406,7 @@ table.dataframe thead th {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ete2526_topic3_lab.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial dependence, weights, diagnostics, and impacts in Aveiro/Ílhavo and mainland Portugal housing markets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploratory Core Spatial Econometric Models</span></span></a>
   </div>
 </li>
       </ul>
@@ -475,7 +422,7 @@ table.dataframe thead th {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">1.1</span> Learning Objectives</a></li>
-  <li><a href="#setup-data-provenance-and-computational-reproducibility" id="toc-setup-data-provenance-and-computational-reproducibility" class="nav-link" data-scroll-target="#setup-data-provenance-and-computational-reproducibility"><span class="header-section-number">1.2</span> 0. Setup, Data Provenance, and Computational Reproducibility</a>
+  <li><a href="#setup-data-provenance-and-computational-reproducibility" id="toc-setup-data-provenance-and-computational-reproducibility" class="nav-link" data-scroll-target="#setup-data-provenance-and-computational-reproducibility"><span class="header-section-number">1.2</span> Setup, Data Provenance, and Computational Reproducibility</a>
   <ul>
   <li><a href="#why-crs-matters-geographic-vs-metric-coordinates" id="toc-why-crs-matters-geographic-vs-metric-coordinates" class="nav-link" data-scroll-target="#why-crs-matters-geographic-vs-metric-coordinates"><span class="header-section-number">1.2.1</span> Why CRS Matters: Geographic vs Metric Coordinates</a></li>
   <li><a href="#section-0-interpretation-and-caution" id="toc-section-0-interpretation-and-caution" class="nav-link" data-scroll-target="#section-0-interpretation-and-caution"><span class="header-section-number">1.2.2</span> Section 0 Interpretation and Caution</a></li>
@@ -526,9 +473,9 @@ table.dataframe thead th {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ete2526_topic2_lab.html">Topic 2 · Spatial Weights &amp; Autocorrelation</a></li><li class="breadcrumb-item"><a href="./ete2526_topic2_lab.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MAUP, Spatial Weights, Spatial Autocorrelation, and Spatial Econometric Diagnostics with Aveiro-Ilhavo Housing Listings</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ete2526_topic2_lab.html">Topic 2 · Spatial Weights &amp; Autocorrelation</a></li><li class="breadcrumb-item"><a href="./ete2526_topic2_lab.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introductiob: key concepts</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MAUP, Spatial Weights, Spatial Autocorrelation, and Spatial Econometric Diagnostics with Aveiro-Ilhavo Housing Listings</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introductiob: key concepts</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
 </div>
 
 
@@ -545,7 +492,7 @@ table.dataframe thead th {
 </header>
 
 
-<p>This lab notes uses the Aveiro-Ilhavo housing listings GeoPackage to show how data quality, aggregation, spatial support, and spatial weights shape spatial analysis and spatial econometric diagnostics.</p>
+<p>MAUP, Spatial Weights, Spatial Autocorrelation, and Spatial Econometric Diagnostics with Aveiro-Ilhavo Housing Listings This lab notes uses the Aveiro-Ilhavo housing listings GeoPackage to show how data quality, aggregation, spatial support, and spatial weights shape spatial analysis and spatial econometric diagnostics.</p>
 <section id="learning-objectives" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1.1</span> Learning Objectives</h2>
 <ul>
@@ -559,7 +506,7 @@ table.dataframe thead th {
 </ul>
 </section>
 <section id="setup-data-provenance-and-computational-reproducibility" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="setup-data-provenance-and-computational-reproducibility"><span class="header-section-number">1.2</span> 0. Setup, Data Provenance, and Computational Reproducibility</h2>
+<h2 data-number="1.2" class="anchored" data-anchor-id="setup-data-provenance-and-computational-reproducibility"><span class="header-section-number">1.2</span> Setup, Data Provenance, and Computational Reproducibility</h2>
 <p>The GeoPackage stores multiple spatial layers in one file. The listing layer is point geometry, while zones and parishes are polygon supports. Listings are asking-price observations, not transaction prices or a full housing census, so coordinate QA fields and fallback assignment fields are part of the evidence.</p>
 <div id="cell-2" class="cell" data-execution_count="1">
 <details class="code-fold">
@@ -7999,85 +7946,45 @@ Table B — Full Diagnostics (all columns)
 
 </main> <!-- /main -->
 <!-- DataTables 2.x -->
-
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
-
 <script>
-
 (function () {
-
   "use strict";
 
-
-
   function initDataTables() {
-
     document.querySelectorAll("table.dataframe").forEach(function (tbl) {
-
       if (tbl._dtInitialised) { return; }
-
       tbl._dtInitialised = true;
-
       if (!tbl.id) {
-
         tbl.id = "dt_" + Math.random().toString(36).slice(2, 9);
-
       }
-
       new DataTable(tbl, {
-
         pageLength: 10,
-
         lengthMenu: [5, 10, 25, 50, 100],
-
         scrollX: true,
-
         layout: {
-
           topStart: "search",
-
           topEnd: "pageLength",
-
           bottomStart: "info",
-
           bottomEnd: "paging"
-
         },
-
         language: {
-
           search: "Filter:",
-
           lengthMenu: "Show _MENU_ rows",
-
           info: "Showing _START_–_END_ of _TOTAL_",
-
           paginate: { previous: "‹", next: "›" }
-
         }
-
       });
-
     });
-
   }
-
-
 
   if (document.readyState === "loading") {
-
     document.addEventListener("DOMContentLoaded", initDataTables);
-
   } else {
-
     initDataTables();
-
   }
-
 })();
-
 </script>
-
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -8549,8 +8456,8 @@ Table B — Full Diagnostics (all columns)
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ete2526_topic3_lab.html" class="pagination-link" aria-label="Spatial dependence, weights, diagnostics, and impacts in Aveiro/Ílhavo and mainland Portugal housing markets">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial dependence, weights, diagnostics, and impacts in Aveiro/Ílhavo and mainland Portugal housing markets</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ete2526_topic3_lab.html" class="pagination-link" aria-label="Exploratory Core Spatial Econometric Models">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploratory Core Spatial Econometric Models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

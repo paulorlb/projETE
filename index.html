@@ -2,15 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Paulo Ricardo Batista">
-<meta name="dcterms.date" content="2026-05-15">
+<meta name="dcterms.date" content="2026-05-18">
 
 <title>ETE 2526 · Spatial Econometrics · Practice Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,19 +72,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./ete2526_topic2_lab.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-969ddfa49e00a70eb3423444dbc81f6c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-40b2a005efe6e6fd6ef73134d5c3deda.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-19057f62685b7ef0603dd7b7c3ade36f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-40b2a005efe6e6fd6ef73134d5c3deda.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8507a392de8405235b10bf7446af15fd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1e546c217b6b96082c2f9e289b09e6f6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8507a392de8405235b10bf7446af15fd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -111,103 +113,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <!-- DataTables 2.x (no jQuery required) -->
-
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
 
-
-
 <style>
-
 /* ── DataTables tweaks ──────────────────────────────────────────────────── */
-
 table.dataframe {
-
   width: 100% !important;
-
   font-size: 0.875em;
-
 }
-
 .dataTables_wrapper {
-
   margin: 1rem 0;
-
   overflow-x: auto;
-
 }
-
 .dataTables_filter input {
-
   border-radius: 4px;
-
   border: 1px solid #ccc;
-
   padding: 3px 8px;
-
   margin-left: 6px;
-
 }
-
 .dataTables_length select {
-
   border-radius: 4px;
-
   border: 1px solid #ccc;
-
   padding: 2px 5px;
-
 }
-
 table.dataframe thead th {
-
   background: #f0f4ff;
-
   white-space: nowrap;
-
 }
-
-
 
 /* ── Code-fold summary label ────────────────────────────────────────────── */
-
 .quarto-fold-btn {
-
   font-size: 0.8em;
-
 }
-
-
 
 /* ── Outputs: give figures and tables breathing room ────────────────────── */
-
 .cell-output img,
-
 .cell-output-display img {
-
   max-width: 100%;
-
   height: auto;
-
   border-radius: 4px;
-
 }
-
-
 
 /* ── Wider content area on large screens ───────────────────────────────── */
-
 @media (min-width: 1400px) {
-
   .quarto-container {
-
     max-width: 1320px;
-
   }
-
 }
-
 </style>
-
 
 
 </head>
@@ -381,8 +334,6 @@ table.dataframe thead th {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">ETE 2526 · Spatial Econometrics · Practice Notes</span>
     </a>
@@ -411,10 +362,6 @@ table.dataframe thead th {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -440,7 +387,7 @@ table.dataframe thead th {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ete2526_topic2_lab.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MAUP, Spatial Weights, Spatial Autocorrelation, and Spatial Econometric Diagnostics with Aveiro-Ilhavo Housing Listings</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introductiob: key concepts</span></span></a>
   </div>
 </li>
       </ul>
@@ -457,7 +404,7 @@ table.dataframe thead th {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ete2526_topic3_lab.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial dependence, weights, diagnostics, and impacts in Aveiro/Ílhavo and mainland Portugal housing markets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploratory Core Spatial Econometric Models</span></span></a>
   </div>
 </li>
       </ul>
@@ -505,7 +452,7 @@ table.dataframe thead th {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 15, 2026</p>
+      <p class="date">May 18, 2026</p>
     </div>
   </div>
   
@@ -606,85 +553,45 @@ table.dataframe thead th {
 
 </main> <!-- /main -->
 <!-- DataTables 2.x -->
-
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
-
 <script>
-
 (function () {
-
   "use strict";
 
-
-
   function initDataTables() {
-
     document.querySelectorAll("table.dataframe").forEach(function (tbl) {
-
       if (tbl._dtInitialised) { return; }
-
       tbl._dtInitialised = true;
-
       if (!tbl.id) {
-
         tbl.id = "dt_" + Math.random().toString(36).slice(2, 9);
-
       }
-
       new DataTable(tbl, {
-
         pageLength: 10,
-
         lengthMenu: [5, 10, 25, 50, 100],
-
         scrollX: true,
-
         layout: {
-
           topStart: "search",
-
           topEnd: "pageLength",
-
           bottomStart: "info",
-
           bottomEnd: "paging"
-
         },
-
         language: {
-
           search: "Filter:",
-
           lengthMenu: "Show _MENU_ rows",
-
           info: "Showing _START_–_END_ of _TOTAL_",
-
           paginate: { previous: "‹", next: "›" }
-
         }
-
       });
-
     });
-
   }
-
-
 
   if (document.readyState === "loading") {
-
     document.addEventListener("DOMContentLoaded", initDataTables);
-
   } else {
-
     initDataTables();
-
   }
-
 })();
-
 </script>
-
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1153,8 +1060,8 @@ table.dataframe thead th {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ete2526_topic2_lab.html" class="pagination-link" aria-label="MAUP, Spatial Weights, Spatial Autocorrelation, and Spatial Econometric Diagnostics with Aveiro-Ilhavo Housing Listings">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MAUP, Spatial Weights, Spatial Autocorrelation, and Spatial Econometric Diagnostics with Aveiro-Ilhavo Housing Listings</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ete2526_topic2_lab.html" class="pagination-link" aria-label="Introductiob: key concepts">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introductiob: key concepts</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
