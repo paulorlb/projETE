@@ -1,0 +1,12 @@
+section,status,detail
+files,check,3/5 expected paths exist
+geopackage_inventory,ok,"PrimeYield_HousingListingsDataClean, M0105_M0110_C2021_e_casasapo_ZonesPlaces_clean, BGRI21_CONT_FREG_0105_0110, cont_municipios, CAOP24_CONT_MUNI"
+schema_notes,check,2 documented/runtime mismatches
+coordinate_qa,ok,10 QA rows reported
+track_a_model_table,ok,1095 listing rows retained
+spatial_features,ok,18 features summarised; 1 excluded by default
+global_reference,ok,4 diagnostic rows
+gwr,fitted,fitted or attempted
+validation,computed,36 fold-metric rows
+residual_spatial_autocorrelation,ok,24 diagnostic rows
+track_b_municipal_extension,ok,30 validation rows

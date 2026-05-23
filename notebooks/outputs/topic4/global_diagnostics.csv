@@ -1,0 +1,5 @@
+feature_set,diagnostic,weights,status,moran_i,p_sim,n,permutations,note,rmse,mae,r2
+hedonic_controls_only,moran_knn_8,listing_knn_8,computed,0.24331296202504837,0.005,1095,199.0,fallback Moran implementation,,,
+hedonic_plus_spatial_features,moran_knn_8,listing_knn_8,computed,0.02037974609700504,0.095,1095,199.0,fallback Moran implementation,,,
+hedonic_controls_only,in_sample_fit,,computed,,,1095,,,705.6169768600145,539.7377631579328,0.5352800208861517
+hedonic_plus_spatial_features,in_sample_fit,,computed,,,1095,,,599.4986817709776,445.2891606863517,0.664548478146167

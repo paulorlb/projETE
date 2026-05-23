@@ -1,0 +1,11 @@
+metric,value,detail
+listing_rows,1095.0,Rows in loaded listing layer
+coordinate_quality_flag,1095.0,ok
+coordinate_is_valid_for_point_analysis,1095.0,True values out of 1095
+coordinate_within_study_area,1095.0,True values out of 1095
+coordinate_duplicate_is_suspicious,0.0,True values out of 1095
+zone_match_method,1078.0,intersects
+zone_match_method,17.0,nearest_zone
+unique_zones_represented,87.0,zone_id
+max_duplicate_coordinate_count,9.0,Maximum exact-coordinate duplicate count
+nearest_zone_distance_m_max,86.65822993342312,Only meaningful for nearest-zone fallback matches

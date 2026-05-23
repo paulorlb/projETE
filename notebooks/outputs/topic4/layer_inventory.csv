@@ -1,0 +1,6 @@
+layer,role_hint,geometry_type,crs,row_count
+PrimeYield_HousingListingsDataClean,listings,Point,EPSG:4326,1095
+M0105_M0110_C2021_e_casasapo_ZonesPlaces_clean,zones,MultiPolygon,EPSG:3763,104
+BGRI21_CONT_FREG_0105_0110,parishes,Polygon,EPSG:3763,14
+cont_municipios,,MultiPolygon,EPSG:3763,278
+CAOP24_CONT_MUNI,municipalities,MultiPolygon,EPSG:3763,278

@@ -1,0 +1,6 @@
+key,path,exists,is_file,size_bytes,suffix
+gpkg,E:\OneDrive\TRABALHO_AULAS\AL20252026\2S_MstCDCS_ETE\projETE\data\ETE_Lab.gpkg,True,True,41619456.0,.gpkg
+primeyield_schema,E:\OneDrive\TRABALHO_AULAS\AL20252026\2S_MstCDCS_ETE\projETE\data\dbPrimeYield_AVRILH_ETE_schema.md,True,True,7904.0,.md
+municipality_metadata,E:\OneDrive\TRABALHO_AULAS\AL20252026\2S_MstCDCS_ETE\projETE\data\CAOP24_CONT_MUNI_metadata.md,True,True,16651.0,.md
+books_map,E:\OneDrive\TRABALHO_AULAS\AL20252026\2S_MstCDCS_ETE\projETE\data\books_maping.md,False,False,,
+contract,E:\OneDrive\TRABALHO_AULAS\AL20252026\2S_MstCDCS_ETE\projETE\data\global_course_content_contract.md,False,False,,
