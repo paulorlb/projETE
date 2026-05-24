@@ -20,6 +20,9 @@ book:
     - part: "TOPIC 3 :: Explanatory Spatial Econometric Models"
       chapters:
         - ete2526_topic3_lab.ipynb
+    - part: "TOPIC 4 :: Advanced Topics"
+      chapters:
+        - ete2526_topic4_lab.ipynb
   sidebar:
     search: true
     style: docked
